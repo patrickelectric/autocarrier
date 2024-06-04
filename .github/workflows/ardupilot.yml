@@ -1,6 +1,7 @@
 name: Build ArduPilot
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - ardupilot/**

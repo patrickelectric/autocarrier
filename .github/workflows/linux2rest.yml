@@ -1,6 +1,7 @@
 name: Build Linux2Rest
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - linux2rest/**
