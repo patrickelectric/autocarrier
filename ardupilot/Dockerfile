@@ -30,7 +30,7 @@ RUN if [ "${PLATFORM}" = "amd64" ]; then \
 ADD https://firmware.ardupilot.org/manifest.json /tmp/manifest.json
 
 # Extract firmware URL and download firmware
-RUN FIRMWARE_URL=$(cat /tmp/manifest.json | jq -r ".firmware[] | select(.latest == 1) | select(.platform | contains(\"$(cat /arch)\")) | select(.vehicletype | contains(\"${VEHICLETYPE}\")) | .url") \
+RUN FIRMWARE_URL=$(cat /tmp/manifest.json | jq -r ".firmware[] | select(.latest == 1) | select(.platform | contains(\"$(cat /arch)\")) | select(.vehicletype | ascii_downcase | contains(\"${VEHICLETYPE}\")) | .url") \
     && curl -L -o /usr/local/bin/firmware $FIRMWARE_URL \
     && chmod +x /usr/local/bin/firmware
 
