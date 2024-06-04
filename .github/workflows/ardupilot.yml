@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         platform: [SITL_x86_64_linux_gnu, SITL_arm_linux_gnueabihf]
-        vehicletype: [AntennaTracker, Copter, Plane, Rover, Sub, Blimp]
+        vehicletype: [antennatracker, blimp, copter, plane, rover, sub]
 
     steps:
       - name: Checkout code
