@@ -18,7 +18,7 @@ ENV VEHICLETYPE=${VEHICLETYPE:-Sub}
 RUN echo "Platform: ${PLATFORM} ${TARGETARCH}"
 RUN echo "VehicleType: ${VEHICLETYPE}"
 
-RUN if [ "${PLATFORM}" = "x86_64" ]; then \
+RUN if [ "${PLATFORM}" = "amd64" ]; then \
         echo "SITL_x86_64_linux_gnu" > /arch; \
     elif [ "${PLATFORM}" = "arm" ]; then \
         echo "SITL_arm_linux_gnueabihf" > /arch; \
