@@ -32,7 +32,7 @@ jobs:
           context: ./ardupilot
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ardupilot-${{ matrix.vehicletype }}:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/ardupilot-$(echo "${{ matrix.vehicletype }}" | awk '{print tolower($0)}'":latest
           build-args: |
             VEHICLETYPE=${{ matrix.vehicletype }}
 
