@@ -13,6 +13,8 @@ ARG PLATFORM
 ENV PLATFORM=${PLATFORM:-$TARGETARCH}
 ENV TARGETARCH=$TARGETARCH
 
+RUN echo "Platform: ${PLATFORM} ${TARGETARCH}"
+
 RUN if [ "${PLATFORM}" = "x86_64" ]; then \
         curl -L -o /usr/local/bin/linux2rest https://github.com/patrickelectric/linux2rest/releases/download/v0.6.0/linux2rest-x86_64-unknown-linux-gnu; \
     elif [ "${PLATFORM}" = "arm" ]; then \
