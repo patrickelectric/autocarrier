@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  ardupilot:
+    build: ./ardupilot/
+    profiles: [ardusub]
+    network_mode: "host"
+    restart: "on-failure"
+    command: "-S --model vectored --speedup 1 -I0 --home 33.810313,-118.393867,0.0,270.0"
+
+  mavlink2rest:
+    build: ./mavlink2rest/
+    profiles: [mavlink2rest]
+    network_mode: "host"
+    command: "--connect tcpout:0.0.0.0:5760"
+
+  linux2rest:
+    build: ./linux2rest/
+    profiles: [linux2rest]
+    network_mode: "host"
+    restart: "on-failure"
