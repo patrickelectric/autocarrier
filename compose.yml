@@ -12,6 +12,14 @@ services:
     network_mode: "host"
     command: "--connect tcpout:0.0.0.0:5760"
 
+  mavproxy:
+    build: ./mavproxy/
+    profiles: [mavproxy]
+    network_mode: "host"
+    command: "--non-interactive --nowait --master=tcp:0.0.0.0:5760 --out=udpin:0.0.0.0:14550 --show-errors --cmd 'watch heartbeat'"
+    depends_on:
+      - ardupilot
+
   linux2rest:
     build: ./linux2rest/
     profiles: [linux2rest]
