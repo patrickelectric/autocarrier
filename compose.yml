@@ -20,6 +20,15 @@ services:
     depends_on:
       - ardupilot
 
+  mavlogdump:
+    build: ./mavproxy/
+    network_mode: "host"
+    entrypoint: "/usr/local/bin/mavlogdump.py"
+    volumes:
+      - type: bind
+        source: ./
+        target: /binded/
+
   linux2rest:
     build: ./linux2rest/
     profiles: [linux2rest]

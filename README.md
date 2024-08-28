@@ -7,4 +7,5 @@
 My personal docker container deployment environment
 
 ## Composer
-`docker-compose -f compose.yml --profile ardusub --profile mavlink2rest up`
+`docker compose -f compose.yml --profile ardusub --profile mavlink2rest up`
+`docker compose run mavlogdump /binded/test.tlog > potato.txt`
