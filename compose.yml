@@ -20,6 +20,12 @@ services:
     depends_on:
       - ardupilot
 
+  mavp2p:
+    build: ./mavp2p/
+    profiles: [mavp2p]
+    network_mode: "host"
+    command: "tcpc:0.0.0.0:5760 udpc:0.0.0.0:14000 --print-errors --streamreq-disable"
+
   mavlogdump:
     build: ./mavproxy/
     network_mode: "host"
