@@ -40,3 +40,10 @@ services:
     profiles: [linux2rest]
     network_mode: "host"
     restart: "on-failure"
+
+  mavlink-server:
+    build: ./mavlink-server/
+    profiles: [mavlink-server]
+    network_mode: "host"
+    restart: "on-failure"
+    command: "tcpclient:0.0.0.0:5760 udpin:0.0.0.0:14555"
