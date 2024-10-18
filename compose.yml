@@ -48,3 +48,10 @@ services:
     network_mode: "host"
     restart: "on-failure"
     command: "tcpclient:0.0.0.0:5760 udpin:0.0.0.0:14555"
+
+  mavlink-camera-manager:
+    build: ./mavlink-camera-manager/
+    profiles: [mavlink-camera-manager]
+    network_mode: "host"
+    restart: "on-failure"
+    command: "--mavlink=tcpin:0.0.0.0:5760 --verbose"
