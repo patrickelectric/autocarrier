@@ -28,6 +28,7 @@ services:
 
   mavlogdump:
     build: ./mavproxy/
+    profiles: [mavlogdump]
     network_mode: "host"
     entrypoint: "/usr/local/bin/mavlogdump.py"
     volumes:
