@@ -54,4 +54,4 @@ services:
     profiles: [mavlink-camera-manager]
     network_mode: "host"
     restart: "on-failure"
-    command: "--mavlink=tcpin:0.0.0.0:5760 --verbose"
+    command: "--mavlink=tcpout:0.0.0.0:5760 --verbose"
